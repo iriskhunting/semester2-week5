@@ -31,8 +31,37 @@ int main(int argc, char *argv[]) {
     float a = atof(argv[1]);
     float b = atof(argv[2]);
     float c = atof(argv[3]);
+
+    // Check for linear equation
+    if (a == 0) {
+        printf("Linear equation -  Solve this yourself you idiot!!!\n");
+        return 2;
+    }
 	
-	//complete the rest of the code
-	
+    // Calculate determinant
+    float D = b*b - 4*a*c;
+
+    if (D > 0){
+        // Two distinct roots
+        float root1 = (-b + sqrt(D))/(2*a);
+        float root2 = (-b - sqrt(D))/(2*a);
+
+        printf("Roots: %.2f, %.2f\n", root1, root2);
+    }
+
+    else if (D = 0) {
+        // One distinct root
+        float root = (-b)/(2*a);
+
+        printf("Roots: %.2f\n", root);
+    }
+
+    else {
+        // D < 0 - calculate real and imaginary parts
+        float part1 = sqrt(-D)/(2*a);
+        float part2 = -part1;
+
+        printf("Real and Imaginary Parts: %.2f, %.2f\n", part1, part2);
+    }
 	return 0;
 }
